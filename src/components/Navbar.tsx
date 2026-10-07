@@ -59,7 +59,7 @@ const Navbar = () => {
 
         </ul>
 
-        <div className="flex justify-center items-center gap-3">
+        <div className="flex justify-center items-center gap-5">
 
           <a href="#">
             Sign In
