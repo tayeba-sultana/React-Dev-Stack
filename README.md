@@ -1,75 +1,118 @@
-# React + TypeScript + Vite
+# React Dev Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About
 
-Currently, two official plugins are available:
+Dev Stack Builder is a React and TypeScript web app where users can explore development technologies and build their own personalized technology stack.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Technologies Used
 
-## React Compiler
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* React Toastify
+* React Icons
+* JSON
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+*  Browse and explore modern development technologies.
+*  Add and remove technologies from your personal stack.
+*  Responsive design for mobile, tablet, and desktop.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## React Questions
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 1. What is JSX, and why is it used in React?
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+JSX lets us write HTML-like code inside JavaScript. It makes React UI code easier to read and write.
 
+### 2. What is the difference between props and state?
+
+Props pass data from a parent to a child. State stores data inside a component that can change over time.
+
+### 3. What does the `useState` hook do, and where did you use it in this project?
+
+`useState` stores changing data in React. I used it for technologies, selected stack, loading, and the mobile menu.
+
+### 4. What does the `useEffect` hook do, and why did you need it to load the JSON data?
+
+`useEffect` runs side effects in React. I used it to fetch the technology data from `data.json` when the app loads.
+
+### 5. Why does every item in a `.map()` list need a unique `key` prop?
+
+A unique `key` helps React identify each item and update the list correctly.
+
+### 6. What is conditional rendering? Show one place you used it.
+
+Conditional rendering means showing different UI based on a condition. I used it for the empty stack message:
+
+```tsx
+{stack.length === 0 ? (
+  <p>Your stack is empty.</p>
+) : (
+  // selected technologies
+)}
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+A parent passes data and functions through props. The child can call a function received from the parent to send an action back.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Example:
 
+```tsx
+<TechCard
+  tech={tech}
+  stack={stack}
+  handleAddToStack={handleAddToStack}
+/>
+```
+
+---
+
+## Project Structure
+
+```text
+react-dev-stack/
+│
+├── public/
+│   ├── data.json
+│   └── favicon.svg
+|   └── icons.svg
+│
+├── src/
+│   ├── assets/
+│   │   ├── banner-stack.png
+│   │   ├── hero.png
+│   │   ├── logo-text.png
+│   │   ├── react.svg
+│   │   └── vite.svg
+│   │
+│   ├── components/
+│   │   ├── Navbar.tsx
+│   │   ├── Hero.tsx
+│   │   ├── MainLayout.tsx
+│   │   ├── TechList.tsx
+│   │   ├── TechCard.tsx
+│   │   ├── Sidebar.tsx
+│   │   └── Footer.tsx
+│   │
+│   ├── App.tsx
+│   ├── App.css
+│   ├── index.css
+│   ├── main.tsx
+│   └── types.ts
+│
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
 ```
