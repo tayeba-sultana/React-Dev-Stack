@@ -17,7 +17,7 @@ const TechCard = ({
   );
 
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-[#e5e7eb] bg-white p-5 shadow-sm">
+    <div className="flex h-full flex-col rounded-2xl border border-[#e5e7eb] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
 
       <div className="flex items-start justify-between">
 
