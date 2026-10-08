@@ -2,7 +2,7 @@
 
 ## About
 
-Dev Stack Builder is a React and TypeScript web app where users can explore development technologies and build their own personalized technology stack.
+React Dev Stack is a React and TypeScript web app where users can explore development technologies and build their own personalized technology stack.
 
 ## Live Link
 https://react-dev-stack-a5.netlify.app/
